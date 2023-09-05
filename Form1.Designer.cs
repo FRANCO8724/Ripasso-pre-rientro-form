@@ -403,6 +403,7 @@
             this.button9.TabIndex = 61;
             this.button9.Text = "Modifica record";
             this.button9.UseVisualStyleBackColor = false;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
             // button8
             // 

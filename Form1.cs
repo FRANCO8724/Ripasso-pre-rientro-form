@@ -285,5 +285,11 @@ namespace Ripasso_pre_rientro
 
             textBox5.Text = "";
         }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            f.Modifica();
+            textBox6.Text = "";
+        }
     }
 }
