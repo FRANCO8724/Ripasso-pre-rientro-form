@@ -416,6 +416,7 @@
             this.button8.TabIndex = 60;
             this.button8.Text = "Ricerca record";
             this.button8.UseVisualStyleBackColor = false;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // button7
             // 

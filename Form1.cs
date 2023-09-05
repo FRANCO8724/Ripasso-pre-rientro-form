@@ -159,10 +159,6 @@ namespace Ripasso_pre_rientro
             bool b2 = false;
             bool c2 = false;
 
-            string[] pa = new string[1000];
-            string[] pb = new string[1000];
-            string[] pc = new string[1000];
-
             using (StreamReader sw = new StreamReader(path))
             {
                 string d = sw.ReadLine();
@@ -277,6 +273,17 @@ namespace Ripasso_pre_rientro
             textBox2.Text = "";
             textBox3.Text = "";
             textBox4.Text = "";
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            string b = f.Ricercarec(textBox5.Text);
+
+            listView1.Clear();
+            listView1.Items.Add("Parola più lunga all'interno del campo " + textBox5.Text + " :");
+            listView1.Items.Add(b);
+
+            textBox5.Text = "";
         }
     }
 }
