@@ -39,6 +39,12 @@ namespace Ripasso_pre_rientro
             f.numcasual();
         }
 
-        
+        private void button2_Click(object sender, EventArgs e)
+        {
+            int a = f.Contacampi();
+
+            listView1.Clear();
+            listView1.Items.Add("Ogni record è composto da: " + a + " campi.");
+        }
     }
 }

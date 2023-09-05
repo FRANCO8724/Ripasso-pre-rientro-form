@@ -50,6 +50,20 @@ namespace Ripasso_pre_rientro
             }
         }
 
-        
+        public int Contacampi()
+        {
+
+            using (StreamReader sw = new StreamReader(path))
+            {
+                string a = sw.ReadLine();
+
+                string[] campi = a.Split(';');
+
+                int lun = campi.Length;
+
+                return lun;
+            }
+
+        }
     }
 }
