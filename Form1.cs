@@ -144,5 +144,139 @@ namespace Ripasso_pre_rientro
             textBox14.Text = "";
             textBox17.Text = "";
         }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            string a = textBox2.Text;
+            string b = textBox3.Text;
+            string c = textBox4.Text;
+
+            int a1 = 0;
+            int b1 = 0;
+            int c1 = 0;
+
+            bool a2 = false;
+            bool b2 = false;
+            bool c2 = false;
+
+            string[] pa = new string[1000];
+            string[] pb = new string[1000];
+            string[] pc = new string[1000];
+
+            using (StreamReader sw = new StreamReader(path))
+            {
+                string d = sw.ReadLine();
+
+                string[] campi = d.Split(';');
+
+                int dim = 0;
+
+                for (int i = 0; i < campi.Length; i++)
+                {
+                    if (a == "miovalore")
+                    {
+                        a1 = 10;
+                    }
+                    else
+                    {
+                        if (a == "")
+                        {
+                            a2 = true;
+                        }
+                        else
+                        {
+                            if (campi[dim] == a)
+                            {
+                                a1 = dim;
+                            }
+                        }
+                    }
+
+                    if (b == "miovalore")
+                    {
+                        b1 = 10;
+                    }
+                    else
+                    {
+                        if (b == "")
+                        {
+                            b2 = true;
+                        }
+                        else
+                        {
+                            if (campi[dim] == b)
+                            {
+                                b1 = dim;
+                            }
+                        }
+                    }
+
+                    if (c == "miovalore")
+                    {
+                        c1 = 10;
+                    }
+                    else
+                    {
+                        if (c == "")
+                        {
+                            c2 = true;
+                        }
+                        else
+                        {
+                            if (campi[dim] == c)
+                            {
+                                c1 = dim;
+                            }
+                        }
+                    }
+
+                    dim++;
+                }
+
+                listView1.Clear();
+
+                while (d != null)
+                {
+
+                    string[] campi2 = d.Split(';');
+
+                    if (a2 == true)
+                    {
+                        listView1.Items.Add("Campo 1:");
+                    }
+                    else
+                    {
+                        listView1.Items.Add("Campo 1:" + campi2[a1]);
+                    }
+
+                    if (b2 == true)
+                    {
+                        listView1.Items.Add("Campo 2:");
+                    }
+                    else
+                    {
+                        listView1.Items.Add("Campo 2:" + campi2[b1]);
+                    }
+
+                    if (c2 == true)
+                    {
+                        listView1.Items.Add("Campo 3:");
+                    }
+                    else
+                    {
+                        listView1.Items.Add("Campo 3:" + campi2[c1]);
+                    }
+
+                    listView1.Items.Add("");
+
+                    d = sw.ReadLine();
+                }
+
+            }
+
+            textBox2.Text = "";
+            textBox3.Text = "";
+            textBox4.Text = "";
+        }
     }
 }
