@@ -4,6 +4,8 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Ripasso_pre_rientro
 {
@@ -64,6 +66,57 @@ namespace Ripasso_pre_rientro
                 return lun;
             }
 
+        }
+
+        public void Lungfissa(int lung)
+        {
+                int[] cont = new int[1000];
+
+                string[] cont2 = new string[1000];
+
+                int dim = 0;
+
+                using (StreamReader sw = new StreamReader(path))
+                {
+                    string a;
+
+                    a = sw.ReadLine();
+
+                    while (a != null)
+                    {
+                        int b = a.Length;
+
+                        cont[dim] = lung - b;
+
+                        cont2[dim] = a;
+
+                        dim++;
+
+                        a = sw.ReadLine();
+                    }
+
+                }
+
+                using (StreamWriter sw = new StreamWriter(path))
+                {
+                    dim = 0;
+
+                    while (cont2[dim] != null)
+                    {
+
+                        string a = null;
+
+                        for (int j = 0; j < cont[dim]; j++)
+                        {
+                            a = a + " ";
+                        }
+
+                        sw.WriteLine(cont2[dim] + a);
+
+                        dim++;
+                    }
+                }
+            
         }
     }
 }

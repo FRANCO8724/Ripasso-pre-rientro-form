@@ -459,6 +459,7 @@
             this.button5.TabIndex = 56;
             this.button5.Text = "Lunghezza fissa";
             this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button3
             // 
@@ -472,6 +473,7 @@
             this.button3.TabIndex = 55;
             this.button3.Text = "Conta lunghezza massima record";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click_1);
             // 
             // button2
             // 

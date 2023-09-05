@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Security.AccessControl;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
@@ -45,6 +46,86 @@ namespace Ripasso_pre_rientro
 
             listView1.Clear();
             listView1.Items.Add("Ogni record è composto da: " + a + " campi.");
+        }
+
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+            using (StreamReader sw = new StreamReader(path))
+            {
+                int dim = 0;
+
+                string a = sw.ReadLine();
+
+                string[] campi = a.Split(';');
+
+                int[] arr = new int[(campi.Length) + 1];
+
+                for (int i = 0; i < campi.Length; i++)
+                {
+                    arr[dim] = campi[i].Length;
+                    dim++;
+                }
+                arr[(arr.Length) - 1] = a.Length;
+
+                while (a != null)
+                {
+                    dim = 0;
+
+                    string[] campi2 = a.Split(';');
+
+                    for (int i = 0; i < campi2.Length; i++)
+                    {
+                        if (arr[dim] < campi2[i].Length)
+                        {
+                            arr[dim] = campi2[i].Length;
+                        }
+
+                        dim++;
+                    }
+
+                    if (arr[(arr.Length) - 1] < a.Length)
+                    {
+                        arr[(arr.Length) - 1] = a.Length;
+                    }
+
+                    a = sw.ReadLine();
+
+                }
+
+                dim = 0;
+
+                listView1.Clear();
+
+                for (int i = 0; i < arr.Length; i++)
+                {
+                    if (i != arr.Length - 1)
+                    {
+                        listView1.Items.Add("Lunghezza campo " + dim.ToString() + ": " + arr[i]);
+                    }
+                    else
+                    {
+                        listView1.Items.Add("Lunghezza record " + dim.ToString() + ": " + (arr[arr.Length - 1] + 1));
+                    }
+                    dim++;
+                }
+
+                lung = arr[arr.Length - 1];
+            }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            if (lung == 0)
+            {
+                listView1.Clear();
+                listView1.Items.Add("Calcolare prima lunghezza del record più lungo che compone il file");
+            }
+            else
+            {
+               f.Lungfissa(lung);
+            }
+
+            
         }
     }
 }
