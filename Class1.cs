@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -245,9 +246,9 @@ namespace Ripasso_pre_rientro
             return b;
         }
 
-        public void Modifica()
+        public void Modifica(string a1, string a2, string a3, string a4, string a5, string a6, string a7, string a8, string a9)
         {
-            string a = textBox6.Text;
+            string a = a1;
 
             string[] ele = new string[1000];
 
@@ -291,9 +292,9 @@ namespace Ripasso_pre_rientro
                     {
                         string[] campi2 = ele[dim].Split(';');
 
-                        if (textBox1.Text != null)
+                        if (a2 != null)
                         {
-                            r = r + textBox1.Text;
+                            r = r + a2;
                         }
                         else
                         {
@@ -301,9 +302,9 @@ namespace Ripasso_pre_rientro
                             r = r + campi3[dim];
                         }
 
-                        if (textBox9.Text != null)
+                        if (a3 != null)
                         {
-                            r = r + ";" + textBox9.Text;
+                            r = r + ";" + a3;
                         }
                         else
                         {
@@ -311,9 +312,9 @@ namespace Ripasso_pre_rientro
                             r = r + ";" + campi4[dim];
                         }
 
-                        if (textBox10.Text != null)
+                        if (a4 != null)
                         {
-                            r = r + ";" + textBox9.Text;
+                            r = r + ";" + a4;
                         }
                         else
                         {
@@ -321,9 +322,9 @@ namespace Ripasso_pre_rientro
                             r = r + ";" + campi5[dim];
                         }
 
-                        if (textBox11.Text != null)
+                        if (a5 != null)
                         {
-                            r = r + ";" + textBox11.Text;
+                            r = r + ";" + a5;
                         }
                         else
                         {
@@ -331,9 +332,9 @@ namespace Ripasso_pre_rientro
                             r = r + ";" + campi6[dim];
                         }
 
-                        if (textBox12.Text != null)
+                        if (a6 != null)
                         {
-                            r = r + ";" + textBox12.Text;
+                            r = r + ";" + a6;
                         }
                         else
                         {
@@ -341,9 +342,9 @@ namespace Ripasso_pre_rientro
                             r = r + ";" + campi7[dim];
                         }
 
-                        if (textBox18.Text != null)
+                        if (a7 != null)
                         {
-                            r = r + ";" + textBox18.Text;
+                            r = r + ";" + a7;
                         }
                         else
                         {
@@ -351,9 +352,9 @@ namespace Ripasso_pre_rientro
                             r = r + ";" + campi8[dim];
                         }
 
-                        if (textBox13.Text != null)
+                        if (a8 != null)
                         {
-                            r = r + ";" + textBox13.Text;
+                            r = r + ";" + a8;
                         }
                         else
                         {
@@ -361,43 +362,14 @@ namespace Ripasso_pre_rientro
                             r = r + ";" + campi9[dim];
                         }
 
-                        if (textBox15.Text != null)
+                        if (a9 != null)
                         {
-                            r = r + ";" + textBox15.Text;
+                            r = r + ";" + a9;
                         }
                         else
                         {
                             string[] campi10 = ele[dim].Split(';');
                             r = r + ";" + campi10[dim];
-                        }
-
-                        if (textBox14.Text != null)
-                        {
-                            r = r + ";" + textBox14.Text;
-                        }
-                        else
-                        {
-                            string[] campi11 = ele[dim].Split(';');
-                            r = r + ";" + campi11[dim];
-                        }
-
-                        if (textBox17.Text != null)
-                        {
-                            r = r + ";" + textBox17.Text;
-                        }
-                        else
-                        {
-                            string[] campi12 = ele[dim].Split(';');
-                            r = r + ";" + ele[dim];
-                        }
-                        if (textBox16.Text != null)
-                        {
-                            r = r + ";" + textBox16.Text;
-                        }
-                        else
-                        {
-                            string[] campi13 = ele[dim].Split(';');
-                            r = r + ";" + ele[dim];
                         }
 
                         sw.WriteLine(r);
@@ -407,6 +379,56 @@ namespace Ripasso_pre_rientro
                         sw.WriteLine(ele[dim]);
                     }
 
+                    dim++;
+                }
+            }
+        }
+
+        public void Canclog(string a1)
+        {
+            bool[] a = new bool[1000];
+
+            string[] a2 = new string[1000];
+
+            string c = a1;
+
+            int dim = 0;
+
+            using (StreamReader sw = new StreamReader(path))
+            {
+                string b = sw.ReadLine();
+
+                while (b != null)
+                {
+                    a2[dim] = b;
+
+                    string[] campi = b.Split(';');
+
+                    if (campi[0] == c)
+                    {
+                        a[dim] = false;
+                    }
+                    else
+                    {
+                        a[dim] = true;
+                    }
+                    dim++;
+
+                    b = sw.ReadLine();
+                }
+            }
+
+            using (StreamWriter sw = new StreamWriter(path))
+            {
+                dim = 0;
+
+                while (a2[dim] != null)
+                {
+
+                    if (a[dim] == true)
+                    {
+                        sw.WriteLine(a2[dim]);
+                    }
                     dim++;
                 }
             }

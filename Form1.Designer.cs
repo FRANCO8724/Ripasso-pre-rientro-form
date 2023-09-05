@@ -382,6 +382,7 @@
             this.button11.TabIndex = 63;
             this.button11.Text = "Cancellazione logica";
             this.button11.UseVisualStyleBackColor = false;
+            this.button11.Click += new System.EventHandler(this.button11_Click);
             // 
             // textBox1
             // 
