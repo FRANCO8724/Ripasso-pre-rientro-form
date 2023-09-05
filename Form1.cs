@@ -124,9 +124,25 @@ namespace Ripasso_pre_rientro
             {
                 listView1.Clear();
                 f.Lungfissa(lung);
+                listView1.Items.Add("Tutti i record hanno la stessa lòunghezza");
             }
 
             
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            f.Aggrecord(textBox1.Text,textBox9.Text ,textBox10.Text,textBox11.Text ,textBox12.Text ,textBox18.Text , textBox13.Text , textBox15.Text , textBox14.Text ,textBox17.Text);
+            textBox1.Text = "";
+            textBox9.Text = "";
+            textBox10.Text = "";
+            textBox11.Text = "";
+            textBox12.Text = "";
+            textBox18.Text = "";
+            textBox13.Text = "";
+            textBox15.Text = "";
+            textBox14.Text = "";
+            textBox17.Text = "";
         }
     }
 }

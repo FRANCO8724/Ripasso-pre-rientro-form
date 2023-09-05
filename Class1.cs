@@ -119,5 +119,56 @@ namespace Ripasso_pre_rientro
                 }
             
         }
+
+        public void Aggrecord(string a1,string a2, string a3, string a4, string a5, string a6, string a7, string a8, string a9, string a10)
+        {
+            bool[] a = new bool[1000];
+
+            string[] p = new string[1000];
+
+            int dim = 0;
+
+            using (StreamReader sw = new StreamReader(path))
+            {
+                string b = sw.ReadLine();
+
+                while (b != null)
+                {
+                    a[dim] = true;
+
+                    p[dim] = b;
+
+                    b = sw.ReadLine();
+
+                    dim++;
+                }
+
+                if (b == null)
+                {
+                    a[dim] = false;
+                }
+
+            }
+
+            using (StreamWriter sw = new StreamWriter(path))
+            {
+                dim = 0;
+
+                while (dim < 1000)
+                {
+
+                    if (a[dim] == false)
+                    {
+                        sw.WriteLine(a1 + ";" + a2 + ";" + a3 + ";" + a4 + ";" + a5 + ";" + a6 + ";" + a7 + ";" + a8 + ";" + a9 + ";" + a10);
+                        break;
+                    }
+
+                    sw.WriteLine(p[dim]);
+
+                    dim++;
+                }
+            }
+        }
+
     }
 }
