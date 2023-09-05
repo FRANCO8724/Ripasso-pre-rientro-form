@@ -70,6 +70,7 @@ namespace Ripasso_pre_rientro
 
         public void Lungfissa(int lung)
         {
+
                 int[] cont = new int[1000];
 
                 string[] cont2 = new string[1000];

@@ -122,7 +122,8 @@ namespace Ripasso_pre_rientro
             }
             else
             {
-               f.Lungfissa(lung);
+                listView1.Clear();
+                f.Lungfissa(lung);
             }
 
             
