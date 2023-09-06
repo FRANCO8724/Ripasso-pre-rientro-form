@@ -167,107 +167,80 @@ namespace Ripasso_pre_rientro
 
                 int dim = 0;
 
-                for (int i = 0; i < campi.Length; i++)
+                for(int i = 0; i < campi.Length; i++)
                 {
-                    if (a == "miovalore")
+                    if(a == campi[dim])
                     {
-                        a1 = 10;
+                        a1 = dim;
                     }
-                    else
+                    if (b == campi[dim])
                     {
-                        if (a == "")
-                        {
-                            a2 = true;
-                        }
-                        else
-                        {
-                            if (campi[dim] == a)
-                            {
-                                a1 = dim;
-                            }
-                        }
+                        b1 = dim;
+                    }
+                    if (c == campi[dim])
+                    {
+                        c1 = dim;
                     }
 
-                    if (b == "miovalore")
+                    if (a == "")
                     {
-                        b1 = 10;
+                        a2 = true;
                     }
-                    else
+                    if (b == "")
                     {
-                        if (b == "")
-                        {
-                            b2 = true;
-                        }
-                        else
-                        {
-                            if (campi[dim] == b)
-                            {
-                                b1 = dim;
-                            }
-                        }
+                        b2 = true;
                     }
-
-                    if (c == "miovalore")
+                    if (c == "")
                     {
-                        c1 = 10;
-                    }
-                    else
-                    {
-                        if (c == "")
-                        {
-                            c2 = true;
-                        }
-                        else
-                        {
-                            if (campi[dim] == c)
-                            {
-                                c1 = dim;
-                            }
-                        }
+                        c2 = true;
                     }
 
                     dim++;
                 }
+                
+            }
 
-                listView1.Clear();
+            using ( StreamReader sw = new StreamReader(path))
+            {
+                string d = sw.ReadLine();
 
-                while (d != null)
+                while( d != null)
                 {
 
-                    string[] campi2 = d.Split(';');
+                    string[] campi = d.Split(';');
 
                     if (a2 == true)
                     {
-                        listView1.Items.Add("Campo 1:");
+                        listView1.Items.Add("Campo1: ");
                     }
                     else
                     {
-                        listView1.Items.Add("Campo 1:" + campi2[a1]);
+                        listView1.Items.Add("Campo1: " + campi[a1]);
                     }
 
                     if (b2 == true)
                     {
-                        listView1.Items.Add("Campo 2:");
+                        listView1.Items.Add("Campo2: ");
                     }
                     else
                     {
-                        listView1.Items.Add("Campo 2:" + campi2[b1]);
+                        listView1.Items.Add("Campo2: " + campi[b1]);
                     }
 
                     if (c2 == true)
                     {
-                        listView1.Items.Add("Campo 3:");
+                        listView1.Items.Add("Campo3: ");
                     }
                     else
                     {
-                        listView1.Items.Add("Campo 3:" + campi2[c1]);
+                        listView1.Items.Add("Campo3: " + campi[c1]);
                     }
 
                     listView1.Items.Add("");
 
                     d = sw.ReadLine();
-                }
 
+                }
             }
 
             textBox2.Text = "";
@@ -280,7 +253,7 @@ namespace Ripasso_pre_rientro
             string b = f.Ricercarec(textBox5.Text);
 
             listView1.Clear();
-            listView1.Items.Add("Parola più lunga all'interno del campo " + textBox5.Text + " :");
+            listView1.Items.Add("Parola univoca all'interno del campo " + textBox5.Text + " è :");
             listView1.Items.Add(b);
 
             textBox5.Text = "";
@@ -296,6 +269,11 @@ namespace Ripasso_pre_rientro
         {
             f.Canclog(textBox8.Text);
             textBox8.Text = "";
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

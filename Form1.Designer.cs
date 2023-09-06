@@ -252,20 +252,21 @@
             this.label10.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label10.Location = new System.Drawing.Point(357, 490);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(383, 13);
+            this.label10.Size = new System.Drawing.Size(375, 13);
             this.label10.TabIndex = 76;
-            this.label10.Text = "Inserire campo COD_ACQ del record da cancellare";
+            this.label10.Text = "Inserire campo Comune del record da cancellare";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Noto Mono", 8.25F, System.Drawing.FontStyle.Bold);
             this.label8.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label8.Location = new System.Drawing.Point(357, 419);
+            this.label8.Location = new System.Drawing.Point(362, 406);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(263, 13);
+            this.label8.Size = new System.Drawing.Size(399, 13);
             this.label8.TabIndex = 75;
-            this.label8.Text = "Inserire campo del record COMUNE";
+            this.label8.Text = "Inserire un campo COMUNE del record da modificare";
+            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // label7
             // 
@@ -332,10 +333,10 @@
             // 
             // textBox6
             // 
-            this.textBox6.Location = new System.Drawing.Point(360, 435);
+            this.textBox6.Location = new System.Drawing.Point(365, 425);
             this.textBox6.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(316, 20);
+            this.textBox6.Size = new System.Drawing.Size(390, 20);
             this.textBox6.TabIndex = 68;
             // 
             // textBox5
@@ -397,7 +398,7 @@
             this.button9.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button9.Font = new System.Drawing.Font("Noto Mono", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button9.Location = new System.Drawing.Point(9, 425);
+            this.button9.Location = new System.Drawing.Point(9, 406);
             this.button9.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(331, 39);
