@@ -263,6 +263,16 @@ namespace Ripasso_pre_rientro
         {
             f.Modifica(textBox6.Text, textBox1.Text,textBox9.Text, textBox10.Text, textBox11.Text, textBox12.Text, textBox13.Text, textBox14.Text, textBox15.Text);
             textBox6.Text = "";
+            textBox1.Text = "";
+            textBox9.Text = "";
+            textBox10.Text = "";
+            textBox11.Text = "";
+            textBox12.Text = "";
+            textBox18.Text = "";
+            textBox13.Text = "";
+            textBox15.Text = "";
+            textBox14.Text = "";
+            textBox17.Text = "";
         }
 
         private void button11_Click(object sender, EventArgs e)
